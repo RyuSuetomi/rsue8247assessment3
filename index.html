@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <script src="script.js"></script>
+  <!--Menu bar-->
+  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="index.html">home</a>
+  <a href="tasks.html">tasks</a>
+  <a href="reading list.html">reading list</a>
+  <a href="timer.html">timer</a>
+  </div>
+<span onclick="openNav()"><button1 class="btn"><i class="fa fa-bars"></i></button1></span>
+
+<div id="main">
+<!--greetings&time-->
+  <h1 id="lblGreetings"></h1>
+  <h2 id='ct'></h2>
+<script>
+  var myDate = new Date();
+  var hrs = myDate.getHours();
+
+  var greet;
+
+  if (hrs < 12)
+    greet = 'Good Morning';
+  else if (hrs >= 12 && hrs <= 17)
+    greet = 'Good Afternoon';
+  else if (hrs >= 17 && hrs <= 24)
+    greet = 'Good Evening';
+
+  document.getElementById('lblGreetings').innerHTML =
+    '<b>' + greet + '</b>';
+</script>
+<script>function display_ct() {
+    var x = new Date()
+    var ampm = x.getHours() >= 12 ? ' PM' : ' AM';
+    var HOURS = x.getHours;
+    hours = x.getHours() % 12;
+    hours = hours ? hours : 12;
+    hours = hours.toString().length == 1 ? hours.toString() : hours;
+
+    var minutes = x.getMinutes().toString()
+    minutes = minutes.length == 1 ? 0 + minutes : minutes;
+
+
+
+    var x1
+    x1 = hours + " " + ":" + " " + minutes + " " + " " + ampm;
+    document.getElementById('ct').innerHTML = x1;
+    display_c();
+  }
+  function display_c() {
+    var refresh = 1000; // Refresh rate in milli seconds
+    mytime = setTimeout('display_ct()', refresh)
+  } display_c()</script>
+</div>
+
+  
+  
+  </div>
+  
+</body>
+
+</html>

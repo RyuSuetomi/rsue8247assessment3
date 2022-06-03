@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html>
+
+
+
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <title>Kanban board</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jkanban@1.3.1/dist/jkanban.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/jkanban@1.3.1/dist/jkanban.min.js"></script>
+</head>
+
+  
+<body>
+<div class=padding>
+  <script src="script.js"></script>
+  <div id="kanban-canvas">
+    
+  </div>  
+  <script>
+
+
+    var dataContent = [
+      {
+        "id"    : "column-id-incomplete",
+        "title" : "incomplete",
+        "item"  : [
+          {
+            "id"      : "item-id-incomplete",
+            "title"   : "javascript coding task"
+          },
+          {
+            "id"      : "item-id-incomplete",
+            "title"   : "web-app pitch presentation"
+          }
+        ]
+      },
+      {
+        "id": "column-id-incomplete",
+        "title": "currently working",
+        "item": [
+          {
+            "id": "item-id-3",
+            "title": "web desgin concept submission"
+          }
+        ]
+      },
+      {
+        "id": "column-id-completed",
+        "title": "completed",
+        "item": [
+          {
+            "id": "item-id-4",
+            "title": "colour guides"
+          },
+          {
+            "id": "item-id-5",
+            "title": "web design concept generating"
+          }
+        ]
+      }
+    ];
+
+    // jKanban
+    var kanban = new jKanban({
+      element: '#kanban-canvas',  // kanban id
+      boards: dataContent,        // kanban data
+      gutter: '16px',             // space
+      widthBoard: '250px',        // column width
+      responsivePercentage: true, 
+      dragItems: true,            // abe to drag items
+      dragBoards: true            // able to drag the boards
+    });
+
+  </script>
+  <!--Menu bar-->
+  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="index.html">home</a>
+  <a href="tasks.html">tasks</a>
+  <a href="reading list.html">reading list</a>
+  <a href="timer.html">timer</a>
+  </div>
+<span onclick="openNav()"><button1 class="btn"><i class="fa fa-bars"></i></button1></span>
+
+</div>
+</body>
+
+</html>

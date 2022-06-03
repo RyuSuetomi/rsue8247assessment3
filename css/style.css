@@ -1,0 +1,302 @@
+ @import url("https://use.typekit.net/xxi1djh.css");
+html, body {
+  
+  height: 100%;
+  width: 100%;
+  background-color: #ddd8cd;
+  font-family: mic-32-new-web, sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+
+
+h1{
+  padding-top: 100px;
+  font-size: 90px;
+  text-align: center;
+  }
+
+h2{font-size: 50px;
+  text-align: center;
+  }
+
+p{text-align: left;
+  padding-left: 10%;
+  font-size: 20px;}
+
+li{
+  font-size: 15px;
+  padding-left: 25%;
+  margin: 15px;
+  text-align: left;
+  list-style-type: circle;
+}
+
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+button {  
+background-color:#313638;  
+color: white; 
+margin: 20px;
+font-size: 15px;
+cursor: pointer;
+border-radius: 50px;
+border: 0px solid;
+width: 200px;
+height: 60px;
+}  
+
+.padding{  padding-top: 100px;}
+
+.main{
+  text-align: center;
+}
+#main{
+  padding-top: 70px;
+  text-align: center;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/*Menu button*/
+.btn {
+  background-color: #313638; 
+  border: none;
+  color: white;
+  padding: 12px 16px; 
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 8px;
+  position:fixed;
+  left: 41px;
+  top: 31px;
+}
+
+#container{
+  padding-top: 60px;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+/* Include the padding and border in an element's total width and height */
+* {
+  box-sizing: border-box;
+}
+
+/* Remove margins and padding from the list */
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the list items */
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+ul li:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+/* Darker background-color on hover */
+ul li:hover {
+  background: #ddd;
+}
+
+/* When clicked on, add a background color and strike out text */
+ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+/* Add a "checked" mark when clicked on */
+ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+/* Style the close button */
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+
+.close:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Style the header */
+.header {
+    border: 1px;
+  border-radius: 20px;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+}
+
+/* Clear floats after the header */
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the input */
+input {
+  margin: 0;
+  border: none;
+  border-radius: 10px 0px 0px 10px;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+/* Style the "Add" button */
+.addBtn {
+  padding: 10px;
+  width: 25%;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.addBtn:hover {
+  background-color: #bbb;
+}
+
+
+/*Pomodoro Timer*/
+// Required variables
+var session_seconds = "00";
+var session_minutes = 25;
+
+// Audio files
+var click_sound = new Audio("click.mp3");
+var bell = new Audio("bell.mp3");
+
+// Starting template for the timer
+function template() {
+  document.getElementById("minutes").innerHTML = session_minutes;
+  document.getElementById("seconds").innerHTML = session_seconds;
+}
+
+function start_timer() {
+  click_sound.play();
+
+  // Change the minutes and seconds to starting time
+  session_minutes = 24;
+  session_seconds = 59;
+
+  // Add the seconds and minutes to the page
+  document.getElementById("minutes").innerHTML = session_minutes;
+  document.getElementById("seconds").innerHTML = session_seconds;
+
+  // Start the countdown
+  var minutes_interval = setInterval(minutesTimer, 60000);
+  var seconds_interval = setInterval(secondsTimer, 1000);
+
+  // Functions
+  // Function for minute counter
+  function minutesTimer() {
+    session_minutes = session_minutes - 1;
+    document.getElementById("minutes").innerHTML = session_minutes;
+  }
+
+  // Function for second counter
+  function secondsTimer() {
+    session_seconds = session_seconds - 1;
+    document.getElementById("seconds").innerHTML = session_seconds;
+
+    // Check if the seconds and minutes counter has reached 0
+    // If reached 0 then end the session
+    if (session_seconds <= 0) {
+      if (session_minutes <= 0) {
+        // Clears the interval i.e. stops the counter
+        clearInterval(minutes_interval);
+        clearInterval(seconds_interval);
+
+        // Add the message to the html
+        document.getElementById("done").innerHTML =
+          "Session Completed!! Take a Break";
+
+        // Make the html message div visible
+        document.getElementById("done").classList.add("show_message");
+
+        // PLay the bell sound to tell the end of session
+        bell.play();
+      }
+
+      // Reset the session seconds to 60
+      session_seconds = 60;
+    }
+  }
+}
+    
